@@ -6,5 +6,6 @@ public class ApiEndpoint {
     public static String COURIER_POST_LOGIN = "/api/v1/courier/login"; // Логин курьера
     public static String COURIER_DELETE = "/api/v1/courier/"; // Удаление курьера
     public static String ORDER_POST_CREATE = "/api/v1/orders"; // Создание заказа
+    public static String ORDER_PUT_CANCEL = "/api/v1/orders/cancel"; // Отмена заказа
     public static String ORDER_GET_LIST = "/api/v1/orders"; // Получение списка заказов
 }

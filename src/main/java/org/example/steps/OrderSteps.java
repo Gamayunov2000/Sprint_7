@@ -8,7 +8,7 @@ import org.example.constants.ApiEndpoint;
 import org.example.pojo.OrderCreateRequest;
 
 import static io.restassured.RestAssured.given;
-import static org.example.constants.ApiEndpoint.ORDER_POST_CREATE;
+import static org.example.constants.ApiEndpoint.*;
 
 public class OrderSteps {
 
@@ -24,5 +24,21 @@ public class OrderSteps {
                 .body(orderCreateRequest)
                 .post(ORDER_POST_CREATE)
                 .then();
+    }
+
+    @Step("Получение списка заказов")
+    public ValidatableResponse orderGetList() {
+        return requestSpecification()
+                .get(ORDER_GET_LIST)
+                .then();
+    }
+
+    @Step("Удаление заказа по треку")
+    public void orderDelete(int track) {
+        requestSpecification()
+                .queryParam("track", track)
+                .put(ORDER_PUT_CANCEL)
+                .then()
+                .log().all();
     }
 }
